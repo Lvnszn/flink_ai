@@ -1,0 +1,8 @@
+master_uri: localhost:50052
+notification_key: source
+bootstrap_servers: localhost:9092
+dataset_uri: data_set/second_test_data.csv
+time_interval: 100
+consume_timeout: 5000
+read_example_topic: tianchi_read_example
+write_example_topic: tianchi_write_example
