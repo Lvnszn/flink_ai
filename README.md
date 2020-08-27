@@ -22,6 +22,7 @@ pip3 install package/whl_dependencies/analytics_zoo_serving-0.9.0.dev0-py3-none-
 pip3 install proxima-tianchi-master-668a0a87cb2a4aa1c68443b1ab05ee5a80008cb4/python/pyproxima2-2.2.0_lite-cp37-cp37m-linux_x86_64.whl
 pip3 install package/whl_dependencies/ai_flow-0.1-py3-none-any.whl
 pip3 install apache-flink==1.11.0
+pip3 install kakfa-python==2.0.0
 ```
 
 ## 如何运行

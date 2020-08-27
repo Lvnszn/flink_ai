@@ -6,6 +6,3 @@ run:
 	$(base) /home/jason/Documents/workspace/tianchi_ai_flow/ai_flow_master.py &
 	$(base) /home/jason/Documents/workspace/tianchi_ai_flow/kafka-source.py &
 	$(base) /home/jason/Documents/workspace/tianchi_ai_flow/package/python_codes/tianchi_main.py &
-
-clean:
-

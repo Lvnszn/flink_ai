@@ -3,3 +3,5 @@ data_set
 .idea
 .DS_Store
 python_codes
+package/logs
+package/temp
