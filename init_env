@@ -1,0 +1,4 @@
+export ENV_HOME=~/Documents/workspace/tianchi_ai_flow/
+export TASK_ID=1
+export PYTHONPATH=~/Documents/workspace/tianchi_ai_flow/package/python_codes/
+export SERVING_HTTP_PATH=~/Documents/workspace/tianchi_ai_flow/package/jar_dependencies

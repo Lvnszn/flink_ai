@@ -24,6 +24,19 @@ pip3 install package/whl_dependencies/ai_flow-0.1-py3-none-any.whl
 pip3 install apache-flink==1.11.0
 ```
 
+## 如何运行
+安装好了环境之后，根据自己的地址设置init_env然后运行下面的命令
+```shell script
+source init_env
+make run
+```
+
+## 如何删除正在跑的进程
+```shell script
+sh clean.sh
+```
+
+
 ## Q&A
 
 如果出现问题，
