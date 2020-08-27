@@ -5,3 +5,7 @@ data_set
 python_codes
 package/logs
 package/temp
+zoo.jar
+redis.log
+config.yaml
+commits
