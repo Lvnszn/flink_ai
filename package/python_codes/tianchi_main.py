@@ -144,6 +144,7 @@ def run_workflow():
                                             name='trainer_0')
 
     with af.config(python_job_config_1):
+        # python_job_1_cluster_serving_channel = af.cluster_serving(model_info=train_model_meta, parallelism=4)
         python_job_1_cluster_serving_channel = af.cluster_serving(model_info=train_model_meta, parallelism=16)
 
     with af.config(global_job_config_1):

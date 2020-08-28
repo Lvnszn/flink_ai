@@ -23,7 +23,8 @@ class SearchUDTF1(TableFunction):
     def open(self, function_context):
         container = IndexContainer(name='MMapFileContainer', params={})
         container.load(self.path)
-        searcher = IndexSearcher("ClusteringSearcher")
+        # searcher = IndexSearcher("ClusteringSearcher")
+        searcher = IndexSearcher("HnswSearcher")
         self.ctx = searcher.load(container).create_context(topk=self.topk)
 
     def eval(self, vec):
@@ -49,7 +50,8 @@ class SearchUDTF2(ScalarFunction):
     def open(self, function_context):
         container = IndexContainer(name='MMapFileContainer', params={})
         container.load(self.path)
-        searcher = IndexSearcher("ClusteringSearcher")
+        # searcher = IndexSearcher("ClusteringSearcher")
+        searcher = IndexSearcher("HnswSearcher")
         self.ctx = searcher.load(container).create_context(topk=self.topk)
 
     def eval(self, vec):
@@ -113,7 +115,8 @@ class BuildIndexUDF(ScalarFunction):
     def open(self, function_context):
         self.holder = IndexHolder(type=self.element_type.to_proxima_type(), dimension=self.dimension)
         self.builder = IndexBuilder(
-            name="ClusteringBuilder",
+            # name="ClusteringBuilder",
+            name="HnswBuilder",
             meta=IndexMeta(type=self.element_type.to_proxima_type(), dimension=self.dimension),
             params={'proxima.hc.builder.max_document_count': self._docs})
 

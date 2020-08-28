@@ -16,18 +16,22 @@ from pyflink.table.descriptors import FileSystem, OldCsv, Schema
 from pyflink.table.udf import udf, FunctionContext
 from zoo.serving.client import InputQueue
 
+execute_path = '/home/jason/anaconda3/bin/python'
+# execute_path = '/usr/bin/python3'
+
 
 class StreamTableEnvCreatorBuildIndex(TableEnvCreator):
 
     def create_table_env(self):
         stream_env = StreamExecutionEnvironment.get_execution_environment()
         stream_env.set_parallelism(100)
+        # stream_env.set_parallelism(1)
         t_env = StreamTableEnvironment.create(
             stream_env,
             environment_settings=EnvironmentSettings.new_instance()
                 .in_streaming_mode().use_blink_planner().build())
         statement_set = t_env.create_statement_set()
-        t_env.get_config().set_python_executable('/usr/bin/python3')
+        t_env.get_config().set_python_executable(execute_path)
         t_env.get_config().get_configuration().set_boolean("python.fn-execution.memory.managed", True)
         return stream_env, t_env, statement_set
 
@@ -42,7 +46,7 @@ class StreamTableEnvCreator(TableEnvCreator):
             environment_settings=EnvironmentSettings.new_instance()
                 .in_streaming_mode().use_blink_planner().build())
         statement_set = t_env.create_statement_set()
-        t_env.get_config().set_python_executable('/usr/bin/python3')
+        t_env.get_config().set_python_executable(execute_path)
         t_env.get_config().get_configuration().set_boolean("python.fn-execution.memory.managed", True)
         return stream_env, t_env, statement_set
 
@@ -55,7 +59,7 @@ class BatchTableEnvCreator(TableEnvCreator):
             environment_settings=EnvironmentSettings.new_instance().in_batch_mode().use_blink_planner().build())
         t_env._j_tenv.getPlanner().getExecEnv().setParallelism(1)
         statement_set = t_env.create_statement_set()
-        t_env.get_config().set_python_executable('/usr/bin/python3')
+        t_env.get_config().set_python_executable(execute_path)
         t_env.get_config().get_configuration().set_boolean("python.fn-execution.memory.managed", True)
         return exec_env, t_env, statement_set
 
