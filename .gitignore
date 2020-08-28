@@ -5,6 +5,7 @@ data_set
 python_codes
 package/logs
 package/temp
+package/jar_dependencies/*
 zoo.jar
 redis.log
 config.yaml

@@ -17,8 +17,7 @@ def get_project_path():
     """
     Get the current project path.
     """
-    p = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    return p
+    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def collect_data_file():
@@ -210,7 +209,6 @@ def run_workflow():
     af.stop_before_control_dependency(flink_job_1_build_index_channel, python_job_2_merge_train_data_file)
     af.stop_before_control_dependency(flink_job_2_read_history_example, flink_job_1_build_index_channel)
     af.stop_before_control_dependency(flink_job_3_read_online_example, flink_job_2_write_result)
-    # 有坑，会从package里俄罗斯套娃
     workflow_id = af.run(get_project_path())
     res = af.wait_workflow_execution_finished(workflow_id)
     sys.exit(res)
