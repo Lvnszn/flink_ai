@@ -62,7 +62,7 @@ class TrainAutoEncoder(Executor):
 class MergePredictResult(Executor):
     def execute(self, function_context: FunctionContext, input_list: List) -> List:
         # num_of_files = 100
-        num_of_files = 100
+        num_of_files = 2
         path = af.get_example_by_name('predict_result').batch_uri
         filenames = []
         for i in range(1, num_of_files + 1):

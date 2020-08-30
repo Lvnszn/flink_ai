@@ -144,8 +144,8 @@ def run_workflow():
                                             name='trainer_0')
 
     with af.config(python_job_config_1):
-        # python_job_1_cluster_serving_channel = af.cluster_serving(model_info=train_model_meta, parallelism=4)
-        python_job_1_cluster_serving_channel = af.cluster_serving(model_info=train_model_meta, parallelism=16)
+        python_job_1_cluster_serving_channel = af.cluster_serving(model_info=train_model_meta, parallelism=2)
+        # python_job_1_cluster_serving_channel = af.cluster_serving(model_info=train_model_meta, parallelism=16)
 
     with af.config(global_job_config_1):
         flink_job_0_read_train_example = af.read_example(example_info=train_example_meta,
@@ -210,7 +210,7 @@ def run_workflow():
     af.stop_before_control_dependency(flink_job_1_build_index_channel, python_job_2_merge_train_data_file)
     af.stop_before_control_dependency(flink_job_2_read_history_example, flink_job_1_build_index_channel)
     af.stop_before_control_dependency(flink_job_3_read_online_example, flink_job_2_write_result)
-    workflow_id = af.run(get_project_path())
+    workflow_id = af.run(get_project_path()+'/')
     res = af.wait_workflow_execution_finished(workflow_id)
     sys.exit(res)
 

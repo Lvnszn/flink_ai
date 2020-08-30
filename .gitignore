@@ -9,5 +9,6 @@ package/jar_dependencies/*
 zoo.jar
 redis.log
 config.yaml
+codes
 commits
 running

@@ -24,8 +24,8 @@ class StreamTableEnvCreatorBuildIndex(TableEnvCreator):
 
     def create_table_env(self):
         stream_env = StreamExecutionEnvironment.get_execution_environment()
-        stream_env.set_parallelism(100)
-        # stream_env.set_parallelism(1)
+        # stream_env.set_parallelism(100)
+        stream_env.set_parallelism(2)
         t_env = StreamTableEnvironment.create(
             stream_env,
             environment_settings=EnvironmentSettings.new_instance()
